@@ -1,7 +1,10 @@
 Role Name
 =========
-
 [![Build Status](https://travis-ci.org/apkawa/ansible-role-cron.svg?branch=master)](https://travis-ci.org/apkawa/ansible-role-cron)
+
+[![Ansible role](https://img.shields.io/ansible/role/42590.svg)](https://galaxy.ansible.com/apkawa/cron)
+[![Ansible role downloads](https://img.shields.io/ansible/role/d/42590.svg)](https://galaxy.ansible.com/apkawa/cron)
+[![Ansible role quality](https://img.shields.io/ansible/quality/42590.svg)](https://galaxy.ansible.com/apkawa/cron)
 
 A brief description of the role goes here.
 
