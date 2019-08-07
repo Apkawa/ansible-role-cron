@@ -18,6 +18,6 @@
         delete: true
 
   roles:
-    - role: ansible-cron
+    - role: ansible-role-cron
 
 

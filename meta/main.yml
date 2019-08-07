@@ -4,23 +4,30 @@ galaxy_info:
   description: Add and remove cron
   license: MIT
 
-  min_ansible_version: 1.2
-
+  min_ansible_version: 2.4
   # min_ansible_container_version:
 
   platforms:
-    - name: CentOS
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
       versions:
         - all
-        - 25
-  # - name: SomePlatform
-  #   versions:
-  #   - all
-  #   - 1.0
-  #   - 7
-  #   - 99.99
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - bionic
 
-  galaxy_tags: []
+  galaxy_tags:
+    - system
+    - server
 
 
 dependencies: []

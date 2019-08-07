@@ -7,8 +7,8 @@ lint:
   name: yamllint
   enabled: no
 platforms:
-  - name: centos-7
-    image: milcom/centos7-systemd
+  - name: instance
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest
     privileged: yes
 #  - name: ubuntu-18.04
 #    image: jrei/systemd-ubuntu:18.04

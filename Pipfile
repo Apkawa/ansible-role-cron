@@ -4,9 +4,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-
-[packages]
-molecule = {extras = ["docker"],version = "*"}
+tox = "==3.7.0"
+tox-pipenv = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
+
+[packages]
+molecule = {extras = [ "docker",],version = "*"}
