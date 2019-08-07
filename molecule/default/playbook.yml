@@ -1,0 +1,23 @@
+---
+
+- name: Converge
+  hosts: all
+  vars:
+    ansible_ssh_user: root # Default user
+    cron:
+      - name: example
+        command: /bin/true
+        # defaults
+        minute: "0"
+        hour: "1"
+        day: "2"
+        month: "3"
+        weekday: "4"
+
+      - name: for remove
+        delete: true
+
+  roles:
+    - role: ansible-cron
+
+

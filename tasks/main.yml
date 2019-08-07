@@ -1,0 +1,51 @@
+---
+- name: Include OS vars
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: Install cron
+  package:
+    name: "{{ cron_package }}"
+
+
+- name: "Add cron"
+  become: yes
+  cron:
+    job: "{{ item.command }}"
+    name: "{{ item.name }}"
+
+    minute: "{{ item.minute|default('*') }}"
+    hour: "{{ item.hour|default('*') }}"
+    day: "{{ item.day|default('*') }}"
+    month: "{{ item.month|default('*') }}"
+    weekday: "{{ item.weekday|default('*') }}"
+    user: "{{ item.user|default(ansible_ssh_user) }}"
+
+    state: present
+
+  with_items: [ "{{ cron }}" ]
+  when: (
+        item.delete is undefined
+        or (item.delete is defined and not item.delete)
+          )
+
+- name: "Remove cron"
+  become: yes
+  cron:
+    name: "{{ item.name }}"
+#    job: "{{ item.command }}"
+#    minute: "{{ item.minute|default('*') }}"
+#    hour: "{{ item.hour|default('*') }}"
+#    day: "{{ item.day|default('*') }}"
+#    month: "{{ item.month|default('*') }}"
+#    weekday: "{{ item.weekday|default('*') }}"
+    user: "{{ item.user|default(ansible_ssh_user) }}"
+    state: absent
+
+  with_items: [ "{{ cron }}" ]
+  when: item.delete is defined and item.delete
+
+- name: Start daemon
+  service:
+    name: "{{ cron_daemon }}"
+    state: started
+    enabled: yes

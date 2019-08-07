@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+  enabled: no
+platforms:
+  - name: centos-7
+    image: milcom/centos7-systemd
+    privileged: yes
+#  - name: ubuntu-18.04
+#    image: jrei/systemd-ubuntu:18.04
+#  - name: debian-10
+#    image: jrei/systemd-debian:10
+provisioner:
+  name: ansible
+  log: true
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
