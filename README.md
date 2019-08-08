@@ -51,8 +51,7 @@ Example Playbook
 ```yaml
 - hosts: all
   roles:
-    - role: ansible-role-cron
-
+    - role: apkawa.cron
 ```
 
 License
