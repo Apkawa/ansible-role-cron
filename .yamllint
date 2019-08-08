@@ -1,6 +1,10 @@
 extends: default
 
 rules:
+  indentation:
+    check-multi-line-strings: false
+    spaces: 2
+    indent-sequences: consistent
   braces:
     max-spaces-inside: 1
     level: error

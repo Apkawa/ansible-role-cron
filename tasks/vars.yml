@@ -1,0 +1,18 @@
+---
+- name: Lookup OS var file
+  set_fact:
+    os_var_file: "{{ lookup('first_found', params, errors='ignore') }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+        - "default.yml"
+      paths:
+        - 'vars'
+
+# - debug: var=os_var_file
+
+- name: Include OS vars
+  include_vars: "{{ os_var_file }}"

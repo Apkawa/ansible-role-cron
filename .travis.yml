@@ -1,3 +1,4 @@
+---
 dist: xenial
 language: python
 services: docker
@@ -9,16 +10,25 @@ python:
 
 env:
   global:
-    - ROLE_NAME=docker
     - PIPENV_VENV_IN_PROJECT=1
     - PIPENV_IGNORE_VIRTUALENVS=1
+  matrix:
+    - DISTRO=centos6
+    - DISTRO=centos7
+    - DISTRO=ubuntu1804
+    - DISTRO=ubuntu1604
+    - DISTRO=ubuntu1404
+    - DISTRO=debian10
+    - DISTRO=debian9
+    - DISTRO=fedora27
+    - DISTRO=fedora30
 
 install:
   - pip install pipenv tox-travis
   - pipenv install --dev
 
 script:
-  - tox
+  - tox -e $DISTRO
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

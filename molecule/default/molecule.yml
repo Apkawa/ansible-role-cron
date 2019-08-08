@@ -9,11 +9,12 @@ lint:
 platforms:
   - name: instance
     image: geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: yes
-#  - name: ubuntu-18.04
-#    image: jrei/systemd-ubuntu:18.04
-#  - name: debian-10
-#    image: jrei/systemd-debian:10
+    pre_build_image: true
+
 provisioner:
   name: ansible
   log: true

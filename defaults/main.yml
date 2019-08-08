@@ -1,20 +1,17 @@
 ---
 cron_package: cron
 cron_daemon: cron
-cron:  []
-
-cron_default:
-  # required
-  name: example
-  command: /bin/true
-  # defaults
-  user: "{{ ansible_ssh_user }}"
-  minute: "*"
-  hour: "*"
-  day: "*"
-  month: "*"
-  weekday: "*"
-
-  delete: false
-
-
+cron: []
+# cron:
+#  - # required
+#    name: example
+#    command: /bin/true
+#    # defaults
+#    user: "{{ ansible_ssh_user }}"
+#    minute: "*"
+#    hour: "*"
+#    day: "*"
+#    month: "*"
+#    weekday: "*"
+#
+#    delete: false

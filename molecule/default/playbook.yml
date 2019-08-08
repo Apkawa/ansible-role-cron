@@ -3,7 +3,8 @@
 - name: Converge
   hosts: all
   vars:
-    ansible_ssh_user: root # Default user
+    # Default user
+    ansible_ssh_user: root
     cron:
       - name: example
         command: /bin/true
@@ -19,5 +20,3 @@
 
   roles:
     - role: ansible-role-cron
-
-

@@ -27,6 +27,7 @@ galaxy_info:
         - bionic
 
   galaxy_tags:
+    - cron
     - system
     - server
 

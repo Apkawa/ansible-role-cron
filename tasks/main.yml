@@ -1,11 +1,18 @@
 ---
-- name: Include OS vars
-  include_vars: "{{ ansible_os_family }}.yml"
+- name: Vars
+  include: vars.yml
+
+- debug: var=ansible_service_mgr
 
 - name: Install cron
   package:
     name: "{{ cron_package }}"
 
+- name: Start daemon
+  service:
+    name: "{{ cron_daemon }}"
+    state: started
+    enabled: yes
 
 - name: "Add cron"
   become: yes
@@ -32,20 +39,8 @@
   become: yes
   cron:
     name: "{{ item.name }}"
-#    job: "{{ item.command }}"
-#    minute: "{{ item.minute|default('*') }}"
-#    hour: "{{ item.hour|default('*') }}"
-#    day: "{{ item.day|default('*') }}"
-#    month: "{{ item.month|default('*') }}"
-#    weekday: "{{ item.weekday|default('*') }}"
     user: "{{ item.user|default(ansible_ssh_user) }}"
     state: absent
 
   with_items: [ "{{ cron }}" ]
   when: item.delete is defined and item.delete
-
-- name: Start daemon
-  service:
-    name: "{{ cron_daemon }}"
-    state: started
-    enabled: yes
