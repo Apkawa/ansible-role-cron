@@ -1,5 +1,6 @@
-Role Name
-=========
+Ansible role: cron
+==================
+
 [![Build Status](https://travis-ci.org/apkawa/ansible-role-cron.svg?branch=master)](https://travis-ci.org/apkawa/ansible-role-cron)
 
 [![Ansible role](https://img.shields.io/ansible/role/42590.svg)](https://galaxy.ansible.com/apkawa/cron)
