@@ -1,7 +1,11 @@
 ---
+
+- debug:
+    msg: "OS {{ ansible_distribution }}-{{ ansible_distribution_major_version }}"
+
 - name: Lookup OS var file
   set_fact:
-    os_var_file: "{{ lookup('first_found', params, errors='ignore') }}"
+    os_var_file: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
