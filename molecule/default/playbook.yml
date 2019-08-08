@@ -7,7 +7,7 @@
     ansible_ssh_user: root
     cron:
       - name: example
-        command: /bin/true
+        command: /bin/echo %100%
         # defaults
         minute: "0"
         hour: "1"

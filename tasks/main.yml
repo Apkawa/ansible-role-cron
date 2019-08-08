@@ -24,7 +24,7 @@
 - name: "Add cron"
   become: yes
   cron:
-    job: "{{ item.command }}"
+    job: "{{ item.command.replace('%', '\\%') }}"
     name: "{{ item.name }}"
 
     minute: "{{ item.minute|default('*') }}"
