@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: cron
   author: Apkawa
-  description: Add and remove cron
+  description: Add cron and manipulate crontab by variable
   license: MIT
 
   min_ansible_version: 2.4
