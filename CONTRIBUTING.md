@@ -19,4 +19,11 @@ tox -e ansible29-centos7 # Specify test
 MOLECULE_DISTRO=centos7 molecule test
 ```
 
+## Run tests with pyenv with specific python and pypy
 
+```shell
+pyenv install 3.10.2
+pyenv local 3.10.2
+pip install -r requirements-dev.txt
+tox -e py310-centos7
+```
